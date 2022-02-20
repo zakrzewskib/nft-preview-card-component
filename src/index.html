@@ -24,16 +24,19 @@
     </style>
 </head>
 
-<body class="bg-mainBG">
+<body class="bg-mainBG" onLoad="load()">
     <main class="flex items-center justify-center h-screen">
-        <div class="bg-cardBG max-w-xs p-6 rounded-xl m-auto flex flex-col space-y-5 drop-shadow-xl">
-            <img src="../images/image-equilibrium.jpg" alt="Image of Equilibrium" class="rounded-lg mb-2 my-card cursor-pointer" />
-            <h1 class="text-xl text-white font-semibold hover:text-cyan cursor-pointer">
-                Equilibrium #3429
-            </h1>
-            <p class="text-sm font-light text-softBlue">
-                Our Equilibrium collection promotes balance and calm.
-            </p>
+        <div class="bg-cardBG max-w-xs p-6 rounded-xl flex flex-col space-y-5 drop-shadow-xl">
+            <img src="../images/image-equilibrium.jpg" alt="Image of Equilibrium" class="w-fit rounded-lg mb-2 my-card cursor-pointer" id="img" />
+
+            <div class="oh-hover absolute top-1 left-6 bg-translucentCyan z-10 rounded-lg mb-2 hidden items-center justify-center cursor-pointer" id="background">
+                <img src="../images/icon-view.svg" class="flex-shrink-0 w-10 h-10" />
+            </div>
+
+            <h1 class="text-xl text-white font-semibold hover:text-cyan cursor-pointer">Equilibrium #3429</h1>
+
+            <p class="text-sm font-light text-softBlue">Our Equilibrium collection promotes balance and calm.</p>
+
             <div class="flex justify-between item-center">
                 <p class="text-sm font-semibold text-cyan flex items-center space-x-1">
                     <img src="../images/icon-ethereum.svg" alt="" class="flex-shrink-0 w-3 h-4" /><span>0.041 ETH</span>
@@ -43,27 +46,43 @@
                     <span>3 days left</span>
                 </p>
             </div>
+
             <div class="h-px bg-line"></div>
+
             <p class="text-sm font-normal text-softBlue flex items-center space-x-4">
                 <img src="../images/image-avatar.png" alt="" class="flex-shrink-0 w-8 h-8 border border-solid border-white rounded-2xl" />
-                <span>Creation of
-            <span class="text-white hover:text-cyan cursor-pointer"
-              >Jules Wyvern</span
-            ></span
-          >
-        </p>
-      </div>
+                <span>Creation of <span class="text-white hover:text-cyan cursor-pointer">Jules Wyvern</span></span>
+            </p>
+        </div>
     </main>
 
     <footer class="fixed bottom-2 left-1/2 -translate-x-1/2 text-softBlue">
-      <div class="attribution">
-        Challenge by
-        <a
-          href="https://www.frontendmentor.io?ref=challenge "
-          target="_blank "
-          >Frontend Mentor</a
-        >. Coded by <a href="# ">zakrzewskib</a>.
-      </div>
+        <div class="attribution">
+            Challenge by
+            <a href="https://www.frontendmentor.io?ref=challenge " target="_blank ">Frontend Mentor</a>. Coded by
+            <a href="# ">zakrzewskib</a>.
+        </div>
     </footer>
-  </body>
+</body>
+
 </html>
+
+<script>
+    const load = () => {
+        const img = document.querySelector('#img');
+        img.addEventListener('mouseover', mOver, false);
+        img.addEventListener('mouseout', mOut, false);
+
+        const background = document.querySelector('#background');
+        background.addEventListener('mouseover', mOver, false);
+        background.addEventListener('mouseout', mOut, false);
+
+        function mOver() {
+            background.setAttribute('style', 'display: flex;');
+        }
+
+        function mOut() {
+            background.setAttribute('style', 'display: none;');
+        }
+    };
+</script>

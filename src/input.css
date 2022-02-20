@@ -7,7 +7,8 @@ body {
 }
 
 @layer components {
-    .my-card:hover {
-        filter: sepia(1);
+    .oh-hover {
+        width: 272px;
+        height: 272px;
     }
 }
