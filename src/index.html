@@ -26,7 +26,7 @@
         <div class="bg-cardBG max-w-xs p-6 rounded-xl flex flex-col space-y-5 drop-shadow-xl">
             <img src="../images/image-equilibrium.jpg" alt="Image of Equilibrium" class="w-fit rounded-lg mb-2 my-card cursor-pointer" id="equilibrium-img" />
 
-            <div class="oh-hover absolute top-1 left-6 bg-translucentCyan z-10 rounded-lg mb-2 hidden items-center justify-center cursor-pointer" id="oh-hover-img">
+            <div class="oh-hover-img absolute top-1 left-6 bg-translucentCyan z-10 rounded-lg mb-2 hidden items-center justify-center cursor-pointer" id="oh-hover-img">
                 <img src="../images/icon-view.svg" class="flex-shrink-0 w-10 h-10" />
             </div>
 
@@ -69,17 +69,15 @@
         const equilibriumImg = document.querySelector('#equilibrium-img');
         const onHoverImage = document.querySelector('#oh-hover-img');
 
-        const mOver = () => {
+        const setToFlex = () => {
             onHoverImage.setAttribute('style', 'display: flex;');
         };
 
-        const mOut = () => {
+        const setToNone = () => {
             onHoverImage.setAttribute('style', 'display: none;');
         };
 
-        equilibriumImg.addEventListener('mouseover', mOver);
-        equilibriumImg.addEventListener('mouseout', mOut);
-        onHoverImage.addEventListener('mouseover', mOver);
-        onHoverImage.addEventListener('mouseout', mOut);
+        [equilibriumImg, onHoverImage].forEach((el) => el.addEventListener('mouseover', setToFlex));
+        [equilibriumImg, onHoverImage].forEach((el) => el.addEventListener('mouseout', setToNone));
     };
 </script>
