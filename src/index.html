@@ -4,14 +4,11 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
-
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
     <link href="/dist/output.css" rel="stylesheet" />
 
     <title>Frontend Mentor | NFT preview card component</title>
 
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
     <style>
         .attribution {
             font-size: 11px;
@@ -24,12 +21,12 @@
     </style>
 </head>
 
-<body class="bg-mainBG" onLoad="load()">
+<body class="bg-mainBG" onLoad="activateHoverEffects()">
     <main class="flex items-center justify-center h-screen">
         <div class="bg-cardBG max-w-xs p-6 rounded-xl flex flex-col space-y-5 drop-shadow-xl">
-            <img src="../images/image-equilibrium.jpg" alt="Image of Equilibrium" class="w-fit rounded-lg mb-2 my-card cursor-pointer" id="img" />
+            <img src="../images/image-equilibrium.jpg" alt="Image of Equilibrium" class="w-fit rounded-lg mb-2 my-card cursor-pointer" id="equilibrium-img" />
 
-            <div class="oh-hover absolute top-1 left-6 bg-translucentCyan z-10 rounded-lg mb-2 hidden items-center justify-center cursor-pointer" id="background">
+            <div class="oh-hover absolute top-1 left-6 bg-translucentCyan z-10 rounded-lg mb-2 hidden items-center justify-center cursor-pointer" id="oh-hover-img">
                 <img src="../images/icon-view.svg" class="flex-shrink-0 w-10 h-10" />
             </div>
 
@@ -56,33 +53,33 @@
         </div>
     </main>
 
-    <footer class="fixed bottom-2 left-1/2 -translate-x-1/2 text-softBlue">
+    <!-- <footer class="fixed bottom-2 left-1/2 -translate-x-1/2 text-softBlue">
         <div class="attribution">
             Challenge by
             <a href="https://www.frontendmentor.io?ref=challenge " target="_blank ">Frontend Mentor</a>. Coded by
             <a href="# ">zakrzewskib</a>.
         </div>
-    </footer>
+    </footer> -->
 </body>
 
 </html>
 
 <script>
-    const load = () => {
-        const img = document.querySelector('#img');
-        img.addEventListener('mouseover', mOver, false);
-        img.addEventListener('mouseout', mOut, false);
+    const activateHoverEffects = () => {
+        const equilibriumImg = document.querySelector('#equilibrium-img');
+        const onHoverImage = document.querySelector('#oh-hover-img');
 
-        const background = document.querySelector('#background');
-        background.addEventListener('mouseover', mOver, false);
-        background.addEventListener('mouseout', mOut, false);
+        const mOver = () => {
+            onHoverImage.setAttribute('style', 'display: flex;');
+        };
 
-        function mOver() {
-            background.setAttribute('style', 'display: flex;');
-        }
+        const mOut = () => {
+            onHoverImage.setAttribute('style', 'display: none;');
+        };
 
-        function mOut() {
-            background.setAttribute('style', 'display: none;');
-        }
+        equilibriumImg.addEventListener('mouseover', mOver);
+        equilibriumImg.addEventListener('mouseout', mOut);
+        onHoverImage.addEventListener('mouseover', mOver);
+        onHoverImage.addEventListener('mouseout', mOut);
     };
 </script>
