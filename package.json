@@ -6,9 +6,12 @@
     "dependencies": {
         "tailwindcss": "^3.0.23"
     },
-    "devDependencies": {},
+    "devDependencies": {
+        "prettier": "^2.5.1",
+        "prettier-plugin-tailwindcss": "^0.1.7"
+    },
     "scripts": {
-        "build-css": "npx tailwindcss -i src/index.css -o public/styles.css --watch"
+        "build-css": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
     },
     "repository": {
         "type": "git",
