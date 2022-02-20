@@ -676,6 +676,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-weight: 400;
 }
 
+.tracking-tight {
+  letter-spacing: -0.025em;
+}
+
 .text-white {
   --tw-text-opacity: 1;
   color: hsl(0 0% 100% / var(--tw-text-opacity));
